@@ -1,17 +1,37 @@
-const express = require("express");
+const app = require("./app");
+const dotenv = require("dotenv");
+const connectDatabase = require("./config/database");
+const cloudinary = require("cloudinary")
 
-const app = express();
-
-app.get("/", (req, res) => {
-	res.send("This is home page.");
+// Handling Uncaught Exception
+process.on("uncaughtException", (err) => {
+	console.log(`Error: ${err.message}`);
+	console.log(`Shutting down the server due to Uncaught Exception`);
+	process.exit(1);
 });
 
-app.post("/", (req, res) => {
-	res.send("This is home page with post request.");
+// Config
+dotenv.config({ path: "server/config/config.env" });
+
+// Connecting to database
+connectDatabase();
+
+cloudinary.config({
+	cloud_name: process.env.CLOUDINARY_NAME,
+	api_key: process.env.CLOUDINARY_API_KEY,
+	api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const PORT = 4000;
+const server = app.listen(4000, () => {
+	console.log(`server is running on http://localhost:4000`);
+});
 
-app.listen(PORT, () => {
-	console.log(`Server is running on PORT: ${PORT}`);
+// Unhandled Promise Rejection
+process.on("unhandledRejection", (err) => {
+	console.log(`Error: ${err.message}`);
+	console.log(`Shutting down the server due to Unhandled Promise Rejection`);
+
+	server.close(() => {
+		process.exit(1);
+	});
 });

@@ -1,15 +1,39 @@
 {
-  "name": "e-commerce_server",
+  "name": "bug-buster",
   "version": "1.0.0",
-  "description": "Server for E-Commerce App",
+  "description": "A website for Edtech in a Hackathon..",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
   },
-  "author": "Atul Singh",
+  "author": "Atul Signh",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cloudinary": "^1.32.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "nodemon": "^2.0.21"
+    "express-fileupload": "^1.4.0",
+    "http-proxy-middleware": "^2.0.6",
+    "js": "^0.1.0",
+    "json-to-plain-text": "^1.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "mailslurp-client": "^15.14.1",
+    "mongoose": "^6.10.3",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "razorpay": "^2.8.4",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "prettier": "2.8.0"
   }
 }
