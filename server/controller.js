@@ -9,40 +9,32 @@ const cloudinary = require("cloudinary");
 
 // Register a Alumni
 exports.register = catchAsyncErrors(async (req, res, next) => {
-	const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-		folder: "avatars",
-		width: 150,
-		crop: "scale",
-	});
+	// const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+	// 	folder: "avatars",
+	// 	width: 150,
+	// 	crop: "scale",
+	// });
 
-	const { name, email, password, contact } = req.body;
+	const { name, email, password, contact, grade } = req.body;
 
 	const user = await User.create({
 		name,
 		email,
 		password,
 		contact,
+		grade,
 		avatar: {
-			public_id: myCloud.public_id,
-			url: myCloud.secure_url,
+			public_id: "myCloud.public_id",
+			url: "myCloud.secure_url",
 		},
 	});
 
-	sendToken(user, 201, res);
-});
+	// const token = user.getJWTToken();
 
-// Contact US
-exports.contactUs = catchAsyncErrors(async (req, res, next) => {
-	const { Cname, Cemail, Cquery, Ccontact } = req.body;
-
-	const contactUs = await Contact.create({
-		Cname,
-		Cemail,
-		Cquery,
-		Ccontact,
-	});
-
-	sendToken(contactUs, 201, res);
+	res.status(201).json({
+		success: true,
+		user,
+	})
 });
 
 // Login User
@@ -67,7 +59,10 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
 		return next(new ErrorHander("Invalid email or password", 401));
 	}
 
-	sendToken(user, 200, res);
+	res.status(200).json({
+		success: true,
+		user,
+	})
 });
 
 // Logout User
