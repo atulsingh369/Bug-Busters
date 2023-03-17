@@ -6,7 +6,7 @@ This project does not have a mongoDB connection setup. Setup the connection base
 - production: Since the config file is not pushed when you deploy app, you must specifiy your db uri in heroku. Set the uri in heroku as specified in [this](https://devcenter.heroku.com/articles/config-vars) resource. Make sure you name the environement variable "DB_URI".
 
 ## Getting Started
-This repository aims to create an Edtech website for a Hackathon conducted by IIT-BHU, which works on MERN stack and is only for Evaluation purpose.
+This repository aims to create an Edtech website for a Hackathon conducted by IIT-BHU (Technex'23), which works on MERN stack and is only for Evaluation purpose.
 
 Since this project will hold both the client application and the server application there will be node modules in two different places. First run `npm install` from the root. After this you will run `npm run-script install-all` from the root. From now on run this command anytime you want to install all modules again. This is a script we have defined in package.json .
 
