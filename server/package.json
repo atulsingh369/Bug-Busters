@@ -1,0 +1,15 @@
+{
+  "name": "e-commerce_server",
+  "version": "1.0.0",
+  "description": "Server for E-Commerce App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atul Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21"
+  }
+}
