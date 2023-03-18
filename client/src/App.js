@@ -6,8 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
 	return (
 		<>
-
-			<Header />
 			<Routes>
 				<Route exact path="/" element={<Home />} />
 				{/* <Route exact path="/dashboard" element={<Dashboard />} />
