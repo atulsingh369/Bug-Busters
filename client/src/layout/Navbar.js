@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { Fragment, useRef, useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
+import { clearErrors, login, register } from "../userAction";
 import logo from '../assets/master_g.png'
 
 const Header = () => {
 
 	const dispatch = useDispatch();
+
+	const login = useRef(null);
 
 	const { error, isAuthenticated } = useSelector(
 		(state) => state.user
@@ -17,7 +20,7 @@ const Header = () => {
 			dispatch(clearErrors());
 		}
 		if (isAuthenticated) {
-			history("/account");
+			login.current.classList.add("d-none");
 		}
 	}, [dispatch, error, isAuthenticated]);
 
@@ -49,7 +52,7 @@ const Header = () => {
 					</span>
 				</Link>
 
-				<div className="fs-5 justify-content-end" id="navbarNavAltMarkup">
+				<div ref={login} className="fs-5 justify-content-end" id="navbarNavAltMarkup">
 					<div className="navbar-nav mb-2 align-items-center mb-lg-0 ms-3">
 						<div
 							className="btn-group btn-group-lg  border-0"

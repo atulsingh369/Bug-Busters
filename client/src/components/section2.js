@@ -8,9 +8,9 @@ const section2 = () => {
 				<div>
 					<h3>Why you Join Us?</h3>
 				</div>
-				<div>
-					<img src={logo} alt="img" />
-				</div>
+
+				<img src={logo} alt="img" />
+
 			</div>
 		</>
 	)
