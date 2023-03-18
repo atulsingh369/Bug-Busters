@@ -1,7 +1,26 @@
+import { useDispatch, useSelector } from "react-redux";
+import React, { Fragment, useRef, useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import logo from '../assets/master_g.png'
 
 const Header = () => {
+
+	const dispatch = useDispatch();
+
+	const { error, isAuthenticated } = useSelector(
+		(state) => state.user
+	);
+
+	useEffect(() => {
+		if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+		if (isAuthenticated) {
+			history("/account");
+		}
+	}, [dispatch, error, isAuthenticated]);
+
 	return (
 		<nav className="navbar z-3 navbar-expand-lg bg-transparent">
 			<div className="container-fluid d-flex justify-content-evenly m-5">

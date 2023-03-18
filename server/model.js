@@ -26,14 +26,14 @@ const userSchema = new mongoose.Schema({
 	},
 	contact: {
 		type: Number,
-		required: [true, "Please Enter Your Contact"],
+		// required: [true, "Please Enter Your Contact"],
 		minLength: [10, "Contact should be of 10 digits"],
 		unique: true,
 		maxLength: [10, "Contact should be of 10 digits"],
 	},
 	grade: {
 		type: Number,
-		required: [true, "Please Enter Your Grade"],
+		// required: [true, "Please Enter Your Grade"],
 	},
 	avatar: {
 		public_id: {
