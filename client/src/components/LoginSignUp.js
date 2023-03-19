@@ -75,9 +75,9 @@ const LoginSignUp = () => {
 			dispatch(clearErrors());
 		}
 		if (isAuthenticated) {
-			history("/account");
+			history("/");
 		}
-	}, [dispatch, error, isAuthenticated]);
+	}, [dispatch, error, isAuthenticated, history]);
 
 	const switchTabs = (e, tab) => {
 		if (tab === "login") {
