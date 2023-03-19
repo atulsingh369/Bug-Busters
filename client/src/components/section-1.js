@@ -1,6 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import React, { Fragment, useRef, useState, useEffect } from "react";
-import { clearErrors, login, register } from "../userAction";
+import React from 'react'
 import { Link } from 'react-router-dom'
 import bg from "../assets/slum.png";
 import Navbar from '../layout/Navbar'
